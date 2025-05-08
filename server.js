@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import connectDB from "./src/db/db.js";
+import router from "./src/routes/cars.js";
 
 connectDB();
 
@@ -19,4 +20,5 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.use("/api", router);
 app.listen(process.env.PORT);

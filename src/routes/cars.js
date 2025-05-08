@@ -1,6 +1,19 @@
 import express, { Router } from "express";
-import Car from "../models/cars.js";
+
+import {
+  createCar,
+  deleteCar,
+  getCarById,
+  getCars,
+  updateCar,
+} from "../controllers/Cars.js";
 
 const router = express.Router();
 
-export default Router;
+router.get("/cars", getCars);
+router.get("/cars/:id", getCarById);
+router.post("/cars", createCar);
+router.put("/cars/:id", updateCar);
+router.delete("/cars/:id", deleteCar);
+
+export default router;
